@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 12px;
+  border-bottom: 1px solid black;
+}
+
+#gallery {
+  border: 1px solid black;
+  min-height: 140px;
+  margin: 12px;
+  padding: 8px;
+}
+
+#editor {
+  border: 1px solid black;
+  min-height: 140px;
+  margin: 12px;
+  padding: 8px;
+}
