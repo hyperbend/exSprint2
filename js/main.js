@@ -10,21 +10,26 @@ const gImgs = [
 ]
 
 var gMeme = {
-    selectedImgId: 2,
+    selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         { txt: 'Hello Meme', size: 40, fill: 'white', stroke: 'black', x: 'center', y: 20 }
     ]
 }
 
-function getMeme() {
-    return gMeme
-}
+function getMeme() { return gMeme }
 
 function getImgUrlById(id) {
-    for (var i = 0; i < gImgs.length; i++) {
-        if (gImgs[i].id === id) return gImgs[i].url
-    }
+    for (var i = 0; i < gImgs.length; i++) if (gImgs[i].id === id) return gImgs[i].url
+}
+
+function setLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
+}
+
+function onSetLineTxt(txt) {
+    setLineTxt(txt)
+    renderMeme()
 }
 
 function onInit() {
@@ -36,10 +41,8 @@ function onInit() {
 
 function renderMeme() {
     coverCanvasWithImg(gImg)
-
     var meme = getMeme()
     var line = meme.lines[meme.selectedLineIdx]
-
     var x = line.x === 'center' ? gElCanvas.width / 2 : line.x
     drawText(line.txt, x, line.y, line.size, line.fill, line.stroke)
 }

@@ -15,8 +15,10 @@
 
     <main>
         <section id="gallery" class="gallery">Gallery section</section>
-        <section id="editor" class="editor">Editor section</section>
-        <canvas id="meme-canvas" width="300" height="300"></canvas>
+        <section id="editor" class="editor">
+            <input type="text" placeholder="Enter meme text" oninput="onSetLineTxt(this.value)">
+            <canvas id="meme-canvas" width="300" height="300"></canvas>
+        </section>
     </main>
 
     <script src="js/main.js"></script>
