@@ -35,6 +35,7 @@ function onSetLineTxt(txt) {
 function onInit() {
     gElCanvas = document.getElementById('meme-canvas')
     gCtx = gElCanvas.getContext('2d')
+    renderGallery()
     gImg.src = getImgUrlById(getMeme().selectedImgId)
     gImg.onload = renderMeme
 }
@@ -65,4 +66,19 @@ function drawText(text, x, y, size, fill, stroke) {
     gCtx.textBaseline = 'top'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+}
+
+function renderGallery() {
+    var strHTML = ''
+    for (var i = 0; i < gImgs.length; i++) {
+        var img = gImgs[i]
+        strHTML += `<img src="${img.url}" onclick="onImgSelect(${img.id})">`
+    }
+    document.getElementById('gallery').innerHTML = strHTML
+}
+
+function onImgSelect(imgId) {
+    gMeme.selectedImgId = imgId
+    gImg.src = getImgUrlById(imgId)
+    gImg.onload = renderMeme
 }
