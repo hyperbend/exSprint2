@@ -82,3 +82,8 @@ function onImgSelect(imgId) {
     gImg.src = getImgUrlById(imgId)
     gImg.onload = renderMeme
 }
+
+function onDownload(elLink) {
+    elLink.href = gElCanvas.toDataURL('image/jpeg')
+    elLink.download = 'meme.jpg'
+}
